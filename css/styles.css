@@ -1,249 +1,203 @@
 body {
-	background: url("../img/bg.png");
+	background: url('../img/bg.png');
 	background-size: cover;
 }
 
-.droite { 
-	float: right;
+header {
+	background: url('../img/bg_head.png') no-repeat center top;
+	background-size: cover;
+	text-align: center;
+	background-color: white;
+	height: auto;
+	border-bottom-right-radius: 100px;
+	border-bottom-left-radius: 100px;
+	margin-bottom: 20px;
+}
+/*/ autre /*/
+
+.pointer {
+	cursor: pointer;
 }
 
 .gauche {
 	float: left;
 }
 
-.affiche { 
-	height: 230px;
-	margin-top: 20px; 
+.droite {
+	float: right;
+	text-align: right;
 }
 
-.affiche:hover {
-	opacity: 0.5;
-}
-
-
-
-
-.title {
-	margin-top:20px;
-	width: 552,91px;
-	height:59,04 px;
-	background: url("../img/logo.png") no-repeat center top;
-	height: 130px;
-	top:0px;
-	left:0px;
-	right:0px;
-	position: absolute;
-}
-
-.bg_head {
-	background: url("../img/bg_head.png") no-repeat center top;
-	left: 0px;
-	right: 0px;
-	top: 0px;
-	
-	
-}
-
-.entete {
-	background-color: #283240;
-	height:46px;
-	text-align: center;
-	cursor: pointer;
-	border-bottom: 2px solid #b2833f;
-	border-top: 2px solid #b2833f;
-}
-
-.entete ul li {
-	font-family: Breeze;
-	list-style: none;
-	margin-top: 10px;
-	display: inline-block;
-	margin-left: 7px;
-	margin-right: 7px; 
-}
-
-.entete a {
-	color: white;
-	text-decoration: none;
-}
-
-.entete a:hover {
-	color: black;
-	text-decoration: none;
-}
-
-.entete_right {
-	border-right: 2px solid #b2833f;
-	
-}
-
-.entete_left {
-	border-left: 2px solid #b2833f;
-}
-
-
-
-.video {
-	margin-bottom:10px;
-}
-.bande {
-	height: auto;
-	background-color: #283240;
-	left:0px;
-	right:0px;
-	margin-top:10px;
-	margin-bottom:20px;
-	text-align: center;
-}
+/*/ Menu */
 
 .menu {
-	border-top: 2px solid #b2833f;
-	border-left: 2px solid #b2833f ;	
-	background-color: #283240;
-	height:46px;
-	margin-top:20px;
-	padding: 10px;
-	color: white;
-}
-
-.input_next {
-	text-align: center;
-	margin-bottom:20px;
-}
-.menu2 {
-	border-top: 2px solid #b2833f;	
-	border-right: 2px solid #b2833f;
-	background-color: #283240;
-	height:46px;
-	margin-top:20px;
-	padding: 10px;
-	color: white;
-}
-
-.menu ul li {
-	text-align: center;
-	display: inline;
-	padding: 2px;
-}
-
-.logo {
-	text-align:center;
-	height:100px;
-	margin-top:20px;
-}
-
-.entre_contenu {
-	display: inline;
-	margin-top: 20px;
+	height: auto;
 	margin-bottom: 20px;
 }
 
-.vue {
-	background-color: #111B3F;
-	height: 600px;
-	word-wrap: break-word;
-	color: white;
-	border-left: 2px solid #b2833f ;
-	border-bottom: 2px solid #b2833f ;
-}
-
-.vue ul li {
+.menu ul li {
+	display: inline;
 	list-style: none;
-	margin-left: -58px;
 }
 
-.film {
-	background-color: #002F2F;
-	height: auto;
-	color: black;	
-	border-bottom: 2px solid #b2833f;
-	padding-top: 5px;
-	padding-bottom: 5px;
+/*/ CADRE GENERAL /*/
+
+.general {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: white;
+	height: 908.53px;
 }
 
-.film_a a {
+.general label  {
+	background-color: #9E9E9E;
+	width: 100%; 
 	padding: 5px;
-}
-
-.bas_titre {
-	font-size: 18px;
-	margin-top: 5px;
-	left: 0px;
-	background-color: #151a22;
 	text-align: center;
-	color: white;
 }
 
-.scroll {
-	 overflow: scroll;
-	 overflow-x: hidden; 
-}
-
-footer { 
-	margin-top: 30px;
-	margin-bottom: 30px;
-	height: auto;
-	position: absolute;
-	background-color: black;
-	text-decoration: none;
+.general h2 {
+	border-bottom: 5px double black;
 	text-align: center;
-	border-top: 3px dashed #b2833f ;
-	border-bottom: 3px dashed #b2833f;
+	margin-bottom: 20px;
 }
 
-footer ul li {
-	color: white;
+.general h5 {
+	font-weight: bold;
+}
+
+.general ul li {
+	margin: 0px;
+	padding: 0px;
 	list-style: none;
 }
-
-
-
-.presentations_affiche {
-	margin-top:20px; 
-	height:50%;
+.general ul {
+	padding-left:0px;
 }
 
-.commentaire {
-	height: 100px;	
-	resize: none;
+.recherche ul li {
+	list-style: none;
+	margin-right: 10px;
+}
+
+.input_search {
+	background:url('../img/inputtext.png');
+	height:35px;
+	margin-bottom: 5px;
+	outline: none;
+}
+
+.input_button {
+	width:56px; 
+	height:35px;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
+
+.film_genre {
+	height: 200px; 
 	overflow: scroll;
 	overflow-x: hidden;
-}
-
-.input_commentaire {
-	padding: 5px;
 	margin-top: 15px;
-
 }
 
-.aff_commentaire {
-	margin-top: 20px;
-	margin-bottom: 5px;
-	border: 1px solid black;
-	padding: 5px;
+.titre {
+	text-align: center;
+}
+
+.affiche_link table {
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+
+.border_affiche {
 	margin-bottom: 15px;
+	margin-top: 15px;
+	border-bottom: 2px solid lightgrey;	
+	
 }
 
-.auteur {
-	color: red;
+/*/ FOOTER /*/
+
+footer {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	background: url('../img/Footer_bg.png') no-repeat right;
+	height: 228px;
 }
 
-.message {
-	color: blue;
+.footer1 {
+	margin-top: 0px;
+	margin-left: -13px;
+	background: url('../img/Footer_bg02.png') no-repeat;
+	height: 228px;
+}
+
+/*/ LECTEUR /*/
+.login_register {
+	margin-bottom: 20px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+.general_lecteur {
 	height: auto;
+	background-color: white;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.presentation_film {
+	word-wrap: break-word;
+	height: 280px;
 	border-bottom: 1px solid black;
 }
 
-
-.admin_top {
-	border-bottom: 2px solid white;
-	top:0px;
-	
+.lecteur {
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
-.admin {
-	margin-top: 10px;
-	color: white;
-	border-top: 2px solid black;
-	border-left: 2px solid black;
-	border-right: 2px solid black;
+
+.commentaire {
+	overflow: scroll;
+	overflow-x: hidden;
+	height: 400px;
+}
+
+.post_commentaire textarea {
+	resize: none;
+	height: 250px;
+	outline: none;
+}
+
+.auteur {
+	font-weight: bold;
+}
+
+.date_heure {
+	font-weight: bold;
+}
+
+.commentaire_message {
+	background-color: #EFEFEF;
+	border: 1px solid black;
+	padding: 15px;
+	margin-bottom: 10px;
+}
+
+/*/ LOGIN REGISTE /*/
+
+.login_register_page {
+	height: auto;
+	padding: 25px;
+	background-color: white;
+}
+
+.login {
+	text-align: center;
+}
+
+.register {
+	text-align: center;
 }

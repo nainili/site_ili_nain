@@ -3,7 +3,7 @@
 class db
 {
 	private $login = 'kess';
-	private $mdp='69KUrzf3';
+	private $mdp='kessilinain62';
 	
 	
 	public function ReturnDB()

@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 ini_set('display_errors', 1);
 class series
 {
@@ -44,6 +44,7 @@ class series
 	
 	public function ChercherSeriesParID($id)
 	{
+		$methodesMessages = new messages();
 		if(is_numeric($id))
 		{
 			$id = htmlentities($this->methodeDB->ReturnDB()->quote($id));
@@ -60,31 +61,45 @@ class series
 				echo '<div class="col-md-12 bande">Episode : '.$aff['episode'].'</div>';
 				echo '<iframe class="col-md-12 video" width="1280" height="425" src="'.$aff['lien'].'" frameborder="0" allowfullscreen></iframe>';
 				echo '<div class="col-md-12 input_next"><form method="post"><input type="hidden" name="titre" value="'.$aff['titre'].'"><input type="hidden" name="numero" value="'.$aff['episode'].'"><input type="submit" name="suivant" value="suivant" /></form></div>';
+				echo 'Tous les épisodes </br>';
+				echo '<div class="container">';
+					echo '<div class="col-md-4">';
+						self::ChercherEpisodesSeries($aff['titre'], 0);
+					echo '</div>';
+					echo '<div class="col-md-4">';
+						self::ChercherEpisodesSeries($aff['titre'],10);
+					echo '</div>';
+					echo '<div class="col-md-4">';
+						self::ChercherEpisodesSeries($aff['titre'],20);
+					echo '</div>';
+				echo '</div>';
+				echo'<form method="post" id="form_com"> 
+									<div class="container"><input type="text" class="col-md-6 input_commentaire" value="'.$_SESSION['pseudo'].'" disabled=""/>
+										<textarea class="col-md-12 commentaire" name="commentaire"></textarea>
+										<input class="col-md-4" type="submit" value="Envoyer le commentaire" />
+									</div>
+								</form>
+								<div id="erreur"></div>'; 
+								echo '<div class="col-md-12" id="commentaire">';
+									//impossible d'envoyer un message si non inscrit, le pseudo n'est pas modifiable sauf dans une page "compte"
+									$methodesMessages->AfficherCommentairesVideo($id, "series");
 				
-				echo'<div class="container"><input type="text" class="col-md-6 input_commentaire" value="pseudodugars" disabled=""/>
-				<textarea class="col-md-12 commentaire"></textarea>
-				<input class="col-md-4" type="submit" value="Envoyer le commentaire" /></div>'; 
-				// impossible d'envoyer un message si non inscrit, le pseudo n'est pas modifiable sauf dans une page "compte"
-				echo'
-						<div class="aff_commentaire col-md-12"> 
-				<div class="col-md-12 auteur">$afficher_pseudo $heure/date</div>
-				<div class="col-md-12 message">ici on affiche les messages 
-				<div class="admin container">
-				<div class="admin_top">Pseudo admin $date/heure</div>
-				Ici c ladmin ki rep laul</div></div>
-				
-				<div class="col-md-12 auteur">$afficher_pseudo $heure/date</div>
-				<div class="col-md-12 message">ici on affiche les messages</div>
-				
-				<div class="col-md-12 auteur">$afficher_pseudo $heure/date</div>
-				<div class="col-md-12 message">ici on affiche les messages</div>
-				
-				<div class="col-md-12 auteur">$afficher_pseudo $heure/date</div>
-				<div class="col-md-12 message">ici on affiche les messages</div>
-				
-				</div></div>';
-				echo'</div>	</div></div>';
+								echo '</div>';
+					echo'</div>
+					</div>
+				</div>
+			</div>';
 			}
+		}
+	}
+	
+	public function ChercherEpisodesSeries($titre, $min)
+	{
+		$titre = htmlentities($this->methodeDB->ReturnDB()->quote($titre));
+		$req = $this->methodeDB->ReturnDB()->query("SELECT id,episode FROM series WHERE titre=$titre ORDER BY episode ASC LIMIT $min,10 ");
+		while($aff=$req->fetch())
+		{
+			echo '<li><a href="?id='.$aff['id'].'&cat=series">Episode : '.$aff['episode'].'</a></li>';
 		}
 	}
 	
@@ -109,6 +124,26 @@ class series
 		if($aff=$req->fetch())
 		{
 			header('Location: ?id='.$aff['id'].'&cat=series');
+		}
+	}
+	
+	public function ChercherSeriesParGenre($genre)
+	{
+		$genre = htmlentities($this->methodeDB->ReturnDB()->quote($genre));
+		$req = $this->methodeDB->ReturnDB()->query("SELECT * FROM vuegenreseries WHERE genre=$genre");
+		while($aff=$req->fetch())
+		{
+			echo "<li><a href='?id=".$aff['id']."&cat=series'>".$aff['titre']." ".$aff['date']."</a></li>";
+		}
+	}
+	
+	public function AfficherTroisDerniersAjoutsSeries()
+	{
+		
+		$req = $this->methodeDB->ReturnDB()->query("SELECT * FROM series ORDER BY id DESC LIMIT 3");
+		while($aff=$req->fetch())
+		{
+			echo '<a href="?id='.$aff['id'].'&cat=series"><img class="affiche col-md-4" alt="no_img_found" src="'.$aff['affiche'].'" /></a>';
 		}
 	}
 }
