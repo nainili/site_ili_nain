@@ -1,0 +1,37 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+
+<script>
+for(i=1; i<=5; i++)
+{
+document.write('<img src="./img/star.png" id="etoile"  onclick="vote('+i+');" />');
+}
+
+function vote(val)
+{
+	$(function()
+	{
+		$.post("voteAjax.php",{val:val},function(data)
+		{
+			$("#vote").empty().append(data);
+		});
+	});
+}
+
+
+
+
+</script>
+<div id="vote"> </div>
+
+<style>
+
+
+#etoile:hover
+{
+	background-image:url('../img/star_yellow.png');
+}
+
+</style>
