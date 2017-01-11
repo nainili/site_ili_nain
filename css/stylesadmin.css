@@ -1,0 +1,56 @@
+header {
+	height: auto;
+	text-align: center;
+	padding-top: 14px;
+	padding-bottom: 7px;
+	border-bottom: 1px solid black;
+}
+
+header h1 {
+	font-style: italic;
+}
+
+.menu {
+	border-right: 1px solid black;
+}
+
+.menu label {
+	padding: 8px;
+	font-weight: bold;
+}
+
+.contenu {
+	padding: 20px;
+}
+
+.film {
+	visibility: hidden;
+	position: absolute;
+	top: 0px;
+	height: 0px;
+}
+
+.film textarea {
+	resize: none;
+	height: 150px;
+}
+
+.film select {
+	height: 29.2px;
+}
+
+.serie {
+	visibility: hidden;
+	background-color: black;
+	position: absolute;
+	top: 0px;
+	height: 0px;
+}
+
+.anime {
+	visibility: hidden;
+	background-color: red;
+	position: absolute;
+	top: 0px;
+	height: 0px;
+}
